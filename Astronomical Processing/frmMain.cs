@@ -2,6 +2,7 @@ namespace Astronomical_Processing
 {
     public partial class frmMain : Form
     {
+        // HENLO - I DID A THING
 
         public frmMain()
         {
@@ -22,6 +23,16 @@ namespace Astronomical_Processing
             {
                 MessageBox.Show("Please enter a valid integer to edit the value.");
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSort_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
