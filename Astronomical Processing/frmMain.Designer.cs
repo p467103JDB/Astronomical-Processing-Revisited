@@ -87,11 +87,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 533);
+            label1.Location = new Point(246, 548);
             label1.Name = "label1";
-            label1.Size = new Size(49, 25);
+            label1.Size = new Size(0, 25);
             label1.TabIndex = 5;
-            label1.Text = "label";
+            label1.TextAlign = ContentAlignment.BottomCenter;
             label1.Click += label1_Click;
             // 
             // frmMain
