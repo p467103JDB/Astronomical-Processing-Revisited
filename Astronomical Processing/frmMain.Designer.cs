@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -92,7 +93,6 @@
             label1.Size = new Size(0, 25);
             label1.TabIndex = 5;
             label1.TextAlign = ContentAlignment.BottomCenter;
-            label1.Click += label1_Click;
             // 
             // frmMain
             // 
@@ -116,9 +116,8 @@
         private Button btnEdit;
         private Button btnSearch;
         private Button btnSort;
-        private ListBox listBox;
-        private TextBox textBox;
         private Label label1;
-        private EventHandler frmMain_Load;
+        public ListBox listBox;
+        public TextBox textBox;
     }
 }

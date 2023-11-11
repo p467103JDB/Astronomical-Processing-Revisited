@@ -1,14 +1,14 @@
-F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.exe
-F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.deps.json
-F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.runtimeconfig.json
-F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.dll
-F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.pdb
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical_Processing.frmMain.resources
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.csproj.GenerateResource.cache
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.GeneratedMSBuildEditorConfig.editorconfig
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.AssemblyInfoInputs.cache
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.AssemblyInfo.cs
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.csproj.CoreCompileInputs.cache
+F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.exe
+F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.deps.json
+F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.runtimeconfig.json
+F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.dll
+F:\TAFE\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.pdb
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.dll
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\refint\Astronomical Processing.dll
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.pdb
