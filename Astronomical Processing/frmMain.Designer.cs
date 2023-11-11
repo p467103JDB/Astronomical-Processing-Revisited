@@ -28,82 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnEdit=new Button();
-            btnSearch=new Button();
-            btnSort=new Button();
-            listBox=new ListBox();
-            textBox=new TextBox();
-            label1=new Label();
+            btnEdit = new Button();
+            btnSearch = new Button();
+            btnSort = new Button();
+            listBox = new ListBox();
+            textBox = new TextBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // btnEdit
             // 
-            btnEdit.Location=new Point(94, 442);
-            btnEdit.Name="btnEdit";
-            btnEdit.Size=new Size(111, 33);
-            btnEdit.TabIndex=0;
-            btnEdit.Text="Edit";
-            btnEdit.UseVisualStyleBackColor=true;
-            btnEdit.Click+=btnEdit_Click;
+            btnEdit.Location = new Point(94, 442);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(111, 33);
+            btnEdit.TabIndex = 0;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnSearch
             // 
-            btnSearch.Location=new Point(211, 442);
-            btnSearch.Name="btnSearch";
-            btnSearch.Size=new Size(111, 33);
-            btnSearch.TabIndex=1;
-            btnSearch.Text="Search";
-            btnSearch.UseVisualStyleBackColor=true;
-            btnSearch.Click+=btnSearch_Click;
+            btnSearch.Location = new Point(211, 442);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(111, 33);
+            btnSearch.TabIndex = 1;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnSort
             // 
-            btnSort.Location=new Point(328, 442);
-            btnSort.Name="btnSort";
-            btnSort.Size=new Size(111, 33);
-            btnSort.TabIndex=2;
-            btnSort.Text="Sort";
-            btnSort.UseVisualStyleBackColor=true;
-            btnSort.Click+=btnSort_Click;
+            btnSort.Location = new Point(328, 442);
+            btnSort.Name = "btnSort";
+            btnSort.Size = new Size(111, 33);
+            btnSort.TabIndex = 2;
+            btnSort.Text = "Sort";
+            btnSort.UseVisualStyleBackColor = true;
+            btnSort.Click += btnSort_Click;
             // 
             // listBox
             // 
-            listBox.FormattingEnabled=true;
-            listBox.ItemHeight=25;
-            listBox.Location=new Point(94, 97);
-            listBox.Name="listBox";
-            listBox.Size=new Size(345, 229);
-            listBox.TabIndex=3;
+            listBox.FormattingEnabled = true;
+            listBox.ItemHeight = 25;
+            listBox.Location = new Point(94, 97);
+            listBox.Name = "listBox";
+            listBox.Size = new Size(345, 229);
+            listBox.TabIndex = 3;
+            listBox.SelectedIndexChanged += listBox_SelectedIndexChanged;
             // 
             // textBox
             // 
-            textBox.Location=new Point(94, 365);
-            textBox.Name="textBox";
-            textBox.Size=new Size(345, 31);
-            textBox.TabIndex=4;
+            textBox.Location = new Point(94, 365);
+            textBox.Name = "textBox";
+            textBox.Size = new Size(345, 31);
+            textBox.TabIndex = 4;
+            textBox.TextChanged += textBox_TextChanged;
             // 
             // label1
             // 
-            label1.AutoSize=true;
-            label1.Location=new Point(12, 533);
-            label1.Name="label1";
-            label1.Size=new Size(49, 25);
-            label1.TabIndex=5;
-            label1.Text="label";
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 533);
+            label1.Name = "label1";
+            label1.Size = new Size(49, 25);
+            label1.TabIndex = 5;
+            label1.Text = "label";
+            label1.Click += label1_Click;
             // 
             // frmMain
             // 
-            AutoScaleDimensions=new SizeF(10F, 25F);
-            AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(533, 594);
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(533, 594);
             Controls.Add(label1);
             Controls.Add(textBox);
             Controls.Add(listBox);
             Controls.Add(btnSort);
             Controls.Add(btnSearch);
             Controls.Add(btnEdit);
-            Name="frmMain";
-            Text="Astronomical Processing";
+            Name = "frmMain";
+            Text = "Astronomical Processing";
             ResumeLayout(false);
             PerformLayout();
         }
