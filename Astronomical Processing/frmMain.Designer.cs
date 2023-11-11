@@ -74,6 +74,7 @@
             listBox.Name="listBox";
             listBox.Size=new Size(345, 229);
             listBox.TabIndex=3;
+            listBox.SelectedIndexChanged+=listBox_SelectedIndexChanged;
             // 
             // textBox
             // 
