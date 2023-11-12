@@ -2,7 +2,7 @@ namespace Astronomical_Processing
 {
     public partial class frmMain : Form
     {
-        private int[] data = new int[24];
+        int[] data = new int[24];
 
         public frmMain()
         {
