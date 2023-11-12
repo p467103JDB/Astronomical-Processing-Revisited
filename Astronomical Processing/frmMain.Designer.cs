@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -68,13 +69,6 @@
             // 
             // listBox
             // 
-            listBox.FormattingEnabled=true;
-            listBox.ItemHeight=25;
-            listBox.Location=new Point(94, 97);
-            listBox.Name="listBox";
-            listBox.Size=new Size(345, 229);
-            listBox.TabIndex=3;
-            listBox.SelectedIndexChanged+=listBox_SelectedIndexChanged;
             listBox.FormattingEnabled = true;
             listBox.ItemHeight = 25;
             listBox.Location = new Point(94, 97);
@@ -94,12 +88,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 533);
+            label1.Location = new Point(246, 548);
             label1.Name = "label1";
-            label1.Size = new Size(49, 25);
+            label1.Size = new Size(0, 25);
             label1.TabIndex = 5;
-            label1.Text = "label";
-            label1.Click += label1_Click;
+            label1.TextAlign = ContentAlignment.BottomCenter;
             // 
             // frmMain
             // 
@@ -123,9 +116,8 @@
         private Button btnEdit;
         private Button btnSearch;
         private Button btnSort;
-        private ListBox listBox;
-        private TextBox textBox;
         private Label label1;
-    
+        public ListBox listBox;
+        public TextBox textBox;
     }
 }
