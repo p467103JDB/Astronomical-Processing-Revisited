@@ -126,6 +126,6 @@
         private ListBox listBox;
         private TextBox textBox;
         private Label label1;
-        private EventHandler frmMain_Load;
+    
     }
 }
