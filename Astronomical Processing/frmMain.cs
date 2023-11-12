@@ -71,20 +71,11 @@ namespace Astronomical_Processing
             }
         }
         
-        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox_TextChanged(object sender, EventArgs e)
         {
         
         }
 
-        private void textBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -93,26 +84,22 @@ namespace Astronomical_Processing
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            //Bubble sort
-            for (int i = 0; i < GlobalLength; i++)
+            // Alices do while bubble sort with a tuple deconstructor
+            bool isSwapped;
+            do
             {
-                bool isSwapped = false;
-
-                for (int j = 0; j < GlobalLength - 1; j++)
+                isSwapped=false;
+                for (int i = 0; i < GlobalLength - 1; i++)
                 {
-                    if (GlobalArray[j] > GlobalArray[j + 1])
+                    if (GlobalArray[i] > GlobalArray[i + 1])
                     {
                         // Might try the whacky tuple deconstructor way of doing this. - No temp int for this one, shit's pretty wild.
-                        (GlobalArray[j + 1], GlobalArray[j]) = (GlobalArray[j], GlobalArray[j + 1]);
+                        (GlobalArray[i], GlobalArray[i + 1]) = (GlobalArray[i + 1], GlobalArray[i]);
                         isSwapped = true;
                     }
                 }
-
-                if (!isSwapped)
-                {
-                    break;
-                }
             }
+            while (isSwapped);
             UpdateListBox();
         }
 
@@ -135,16 +122,6 @@ namespace Astronomical_Processing
                 GlobalArray[i] = rInt;      // set vals to index in array
             }
             UpdateListBox();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
