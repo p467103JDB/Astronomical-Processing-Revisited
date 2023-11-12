@@ -28,6 +28,7 @@ using System.Windows.Forms;
 //  - Success messagebox if textbox string was found.
 //  - Allows user to edit selected index
 
+
 namespace Astronomical_Processing
 {
     public partial class frmMain : Form
@@ -39,7 +40,17 @@ namespace Astronomical_Processing
         public frmMain()
         {
             InitializeComponent();
-            FillArray();
+            InitializeDataArray();
+        }
+        private void InitializeDataArray()
+        {
+            for (int i = 0; i < GlobalLength; i++)
+            {
+                Random r = new Random();    // initialise rand
+                int rInt = r.Next(10, 99);  // lower, higher
+                GlobalArray[i] = rInt;      // set vals to index in array
+            }
+            UpdateListBox();
         }
 
         private void UpdateListBox()
@@ -53,78 +64,98 @@ namespace Astronomical_Processing
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int row = listBox.SelectedIndex;
-            if (row != -1) // Check if an item is selected
+            if (listBox.SelectedIndex != -1)
             {
-                // The program liked string with string? for some reason, something to do with the conversion type
-
-                string? s = listBox.Items[row].ToString();
-                if (s != null) 
-                {
-                    // set textbox text 
-                    textBox.Text = s;
-
-                    // Get focus on the text box and move the cursor to the end
-                    textBox.Focus();
-                    textBox.SelectionStart = s.Length;
-                }
+                textBox.Text = listBox.SelectedItem.ToString();
             }
         }
 
-        private void btnSort_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            //Bubble sort
-            for (int i = 0; i < GlobalLength; i++)
+            int searchValue;
+            if (int.TryParse(textBox.Text, out searchValue))
             {
-                bool isSwapped = false;
-
-                for (int j = 0; j < GlobalLength - 1; j++)
+                int index = BinarySearch(GlobalArray, searchValue);
+                if (index != -1)
                 {
-                    if (GlobalArray[j] > GlobalArray[j + 1])
+                    MessageBox.Show($"Search successful. Value found at index {index}.");
+                }
+                else
+                {
+                    MessageBox.Show("Search unsuccessful. Value not found.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid search value.");
+            }
+        }
+       private void btnSort_Click(object sender, EventArgs e)
+        {
+            // Alices do while bubble sort with a tuple deconstructor
+            bool isSwapped;
+            do
+            {
+                isSwapped=false;
+                for (int i = 0; i < GlobalLength - 1; i++)
+                {
+                    if (GlobalArray[i] > GlobalArray[i + 1])
                     {
                         // Might try the whacky tuple deconstructor way of doing this. - No temp int for this one, shit's pretty wild.
-                        (GlobalArray[j + 1], GlobalArray[j]) = (GlobalArray[j], GlobalArray[j + 1]);
+                        (GlobalArray[i], GlobalArray[i + 1]) = (GlobalArray[i + 1], GlobalArray[i]);
                         isSwapped = true;
                     }
                 }
-
-                if (!isSwapped)
-                {
-                    break;
-                }
             }
+            while (isSwapped);
             UpdateListBox();
-        }
-
-        private void FillArray()
-        {
-            for (int i = 0; i < GlobalLength; i++)
-            {
-                Random r = new Random();    // initialise rand
-                int rInt = r.Next(10, 99);  // lower, higher
-                GlobalArray[i] = rInt;      // set vals to index in array
-            }
-            UpdateListBox();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            int newValue;
+            if (int.TryParse(textBox.Text, out newValue) && listBox.SelectedIndex != -1)
+            {
+                GlobalArray[listBox.SelectedIndex] = newValue;
+                UpdateListBox();
+                textBox.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid integer to edit the value and select an item in the list.");
+            }
         }
 
+        private int BinarySearch(int[] array, int target)
+        {
+            int left = 0;
+            int right = array.Length - 1;
+
+            while (left <= right)
+            {
+                int mid = left + (right - left) / 2;
+
+                if (array[mid] == target)
+                {
+                    return mid;
+                }
+
+                if (array[mid] < target)
+                {
+                    left = mid + 1;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+            }
+
+            return -1; // Return -1 if not found
+        }
         private void textBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
