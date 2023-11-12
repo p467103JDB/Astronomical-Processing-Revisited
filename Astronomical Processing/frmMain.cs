@@ -36,7 +36,6 @@ namespace Astronomical_Processing
         const int GlobalLength = 24; // Global constant
         int[] GlobalArray = new int[GlobalLength];
 
-
         public frmMain()
         {
             InitializeComponent();
@@ -51,8 +50,6 @@ namespace Astronomical_Processing
             listBox.Items.Clear();
             listBox.Items.AddRange(stringArray);
         }
-
-
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -72,6 +69,16 @@ namespace Astronomical_Processing
                     textBox.SelectionStart = s.Length;
                 }
             }
+        }
+        
+        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+        
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -128,6 +135,16 @@ namespace Astronomical_Processing
                 GlobalArray[i] = rInt;      // set vals to index in array
             }
             UpdateListBox();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
