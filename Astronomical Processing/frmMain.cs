@@ -66,30 +66,44 @@ namespace Astronomical_Processing
             }
         }
 
-        private void btnSort_Click(object sender, EventArgs e)
         {
-            BubbleSort(data);
+            // Alices do while bubble sort with a tuple deconstructor
+            bool isSwapped;
+            do
+            {
+                isSwapped=false;
+                for (int i = 0; i < GlobalLength - 1; i++)
+                {
+                    if (GlobalArray[i] > GlobalArray[i + 1])
+                    {
+                        // Might try the whacky tuple deconstructor way of doing this. - No temp int for this one, shit's pretty wild.
+                        (GlobalArray[i], GlobalArray[i + 1]) = (GlobalArray[i + 1], GlobalArray[i]);
+                        isSwapped = true;
+                    }
+                }
+            }
+            while (isSwapped);
             UpdateListBox();
         }
 
-        private void BubbleSort(int[] array)
+       private void btnSort_Click(object sender, EventArgs e)
         {
-            bool swapped;
+            bool isSwapped;
             do
             {
-                swapped = false;
-                for (int i = 1; i < array.Length; i++)
+                isSwapped=false;
+                for (int i = 0; i < GlobalLength - 1; i++)
                 {
-                    if (array[i - 1] > array[i])
+                    if (GlobalArray[i] > GlobalArray[i + 1])
                     {
-                        // Swap array[i-1] and array[i]
-                        int temp = array[i - 1];
-                        array[i - 1] = array[i];
-                        array[i] = temp;
-                        swapped = true;
+                        // Might try the whacky tuple deconstructor way of doing this. - No temp int for this one, shit's pretty wild.
+                        (GlobalArray[i], GlobalArray[i + 1]) = (GlobalArray[i + 1], GlobalArray[i]);
+                        isSwapped = true;
                     }
                 }
-            } while (swapped);
+            }
+            while (isSwapped);
+            UpdateListBox();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
