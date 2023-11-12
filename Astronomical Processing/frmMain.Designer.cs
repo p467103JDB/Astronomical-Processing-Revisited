@@ -68,6 +68,13 @@
             // 
             // listBox
             // 
+            listBox.FormattingEnabled=true;
+            listBox.ItemHeight=25;
+            listBox.Location=new Point(94, 97);
+            listBox.Name="listBox";
+            listBox.Size=new Size(345, 229);
+            listBox.TabIndex=3;
+            listBox.SelectedIndexChanged+=listBox_SelectedIndexChanged;
             listBox.FormattingEnabled = true;
             listBox.ItemHeight = 25;
             listBox.Location = new Point(94, 97);

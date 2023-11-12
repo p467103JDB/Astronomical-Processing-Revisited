@@ -14,3 +14,19 @@ F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.pdb
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.genruntimeconfig.cache
 F:\TAFE\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\ref\Astronomical Processing.dll
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.exe
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.deps.json
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.runtimeconfig.json
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.dll
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\bin\Debug\net6.0-windows\Astronomical Processing.pdb
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical_Processing.frmMain.resources
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.csproj.GenerateResource.cache
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.AssemblyInfoInputs.cache
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.AssemblyInfo.cs
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.csproj.CoreCompileInputs.cache
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.dll
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\refint\Astronomical Processing.dll
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.pdb
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\Astronomical Processing.genruntimeconfig.cache
+D:\GitHub Clones\Astronomical-Processing\Astronomical Processing\obj\Debug\net6.0-windows\ref\Astronomical Processing.dll
