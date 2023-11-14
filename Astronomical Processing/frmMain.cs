@@ -122,7 +122,7 @@ namespace Astronomical_Processing
             }
             else
             {
-                MessageBox.Show("Please enter a valid integer to edit the value and select an item in the list.");
+                MessageBox.Show("Please select an item from the list and then enter a valid integer to edit the value.");
             }
         }
 
