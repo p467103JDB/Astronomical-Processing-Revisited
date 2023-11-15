@@ -44,9 +44,10 @@ namespace Astronomical_Processing
         }
         private void InitializeDataArray()
         {
+            Random r = new Random();    // initialise rand
+
             for (int i = 0; i < GlobalLength; i++)
             {
-                Random r = new Random();    // initialise rand
                 int rInt = r.Next(10, 99);  // lower, higher
                 GlobalArray[i] = rInt;      // set vals to index in array
             }
@@ -70,7 +71,7 @@ namespace Astronomical_Processing
             }
         }
 
-        //Alice integrated BSearch algorithm to Search Button
+        // Alice integrated BSearch algorithm to Search Button
         private void btnSearch_Click(object sender, EventArgs e)
         {
             int searchValue;
