@@ -36,20 +36,29 @@ namespace Astronomical_Processing
         // Globals
         const int GlobalLength = 24; // Global constant
         int[] GlobalArray = new int[GlobalLength];
+        Random random = new Random(); // Generate random integers
 
         public frmMain()
         {
             InitializeComponent();
             InitializeDataArray();
         }
+
         private void InitializeDataArray()
         {
-            Random r = new Random();    // initialise rand
+            // HashSet keep track of the unique randmly generated integers and store them (purpose: avoid duplicate data)
+            HashSet<int> uniqueNumbers = new HashSet<int>();
 
             for (int i = 0; i < GlobalLength; i++)
             {
-                int rInt = r.Next(10, 99);  // lower, higher
-                GlobalArray[i] = rInt;      // set vals to index in array
+                int rInt;
+                do
+                {
+                    rInt = random.Next(10, 99);
+                } while (!uniqueNumbers.Add(rInt)); // Continue looping until a unique number is generated
+
+                // Add the unique integr to the array
+                GlobalArray[i] = rInt;
             }
             UpdateListBox();
         }
