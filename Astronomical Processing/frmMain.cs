@@ -70,25 +70,38 @@ namespace Astronomical_Processing
             }
         }
 
+        //Alice integrated BSearch algorithm to Search Button
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            int searchValue;
-            if (int.TryParse(textBox.Text, out searchValue))
+            int left = 0;
+            int right = GlobalArray.Length - 1;
+            while (left <= right)
             {
-                int index = BinarySearch(GlobalArray, searchValue);
-                if (index != -1)
+                int mid = left + (right - left) / 2;
+
+                if (GlobalArray[mid] == searchValue)
                 {
-                    MessageBox.Show($"Search successful. Value found at index {index}.");
+                    MessageBox.Show($"Value found at index {mid}.");
+                    return; // Exit the method if the value is found
                 }
-                else
+
+                if (GlobalArray[mid] < searchValue)
                 {
-                    MessageBox.Show("Search unsuccessful. Value not found.");
+                    left = mid + 1;
                 }
+                else{
+                    right = mid - 1;
+                }
+            }
+
+            MessageBox.Show("Value not found.");
+            
             }
             else
             {
                 MessageBox.Show("Please enter a valid search value.");
             }
+            
         }
        private void btnSort_Click(object sender, EventArgs e)
         {
@@ -126,31 +139,6 @@ namespace Astronomical_Processing
             }
         }
 
-        private int BinarySearch(int[] array, int target)
-        {
-            int left = 0;
-            int right = array.Length - 1;
-
-            while (left <= right)
-            {
-                int mid = left + (right - left) / 2;
-
-                if (array[mid] == target)
-                {
-                    return mid;
-                }
-
-                if (array[mid] < target)
-                {
-                    left = mid + 1;
-                }
-                else
-                {
-                    right = mid - 1;
-                }
-            }
-
-            return -1; // Return -1 if not found
         }
         private void textBox_TextChanged(object sender, EventArgs e)
         {
