@@ -73,36 +73,41 @@ namespace Astronomical_Processing
         //Alice integrated BSearch algorithm to Search Button
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            int left = 0;
-            int right = GlobalArray.Length - 1;
-            while (left <= right)
+            int searchValue;
+            if (int.TryParse(textBox.Text, out searchValue))
             {
-                int mid = left + (right - left) / 2;
-
-                if (GlobalArray[mid] == searchValue)
+                int left = 0;
+                int right = GlobalArray.Length - 1;
+                
+                while (left <= right)
                 {
-                    MessageBox.Show($"Value found at index {mid}.");
-                    return; // Exit the method if the value is found
+                    int mid = left + (right - left) / 2;
+
+                    if (GlobalArray[mid] == searchValue)
+                    {
+                        MessageBox.Show($"Value found at index {mid}.");
+                        return; // Exit the method if the value is found
+                    }
+
+                    if (GlobalArray[mid] < searchValue)
+                    {
+                        left = mid + 1;
+                    }
+                    else
+                    {
+                        right = mid - 1;
+                    }
                 }
 
-                if (GlobalArray[mid] < searchValue)
-                {
-                    left = mid + 1;
-                }
-                else{
-                    right = mid - 1;
-                }
-            }
-
-            MessageBox.Show("Value not found.");
+                MessageBox.Show("Value not found.");
             
             }
             else
             {
                 MessageBox.Show("Please enter a valid search value.");
             }
-            
         }
+        
        private void btnSort_Click(object sender, EventArgs e)
         {
             // Alices do while bubble sort with a tuple deconstructor
@@ -139,7 +144,6 @@ namespace Astronomical_Processing
             }
         }
 
-        }
         private void textBox_TextChanged(object sender, EventArgs e)
         {
 
