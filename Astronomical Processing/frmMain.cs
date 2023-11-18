@@ -119,8 +119,8 @@ namespace Astronomical_Processing
                 }
 
                 MessageBox.Show("Value not found.");
-
             }
+
             else
             {
                 MessageBox.Show("Please enter a valid search value.");
@@ -154,6 +154,7 @@ namespace Astronomical_Processing
             if (int.TryParse(textBox.Text, out newValue) && listBox.SelectedIndex != -1)
             {
                 GlobalArray[listBox.SelectedIndex] = newValue;
+                btnSort_Click(sender, e);
                 UpdateListBox();
                 textBox.Clear();
             }
@@ -182,15 +183,16 @@ namespace Astronomical_Processing
                         return;
                     }
                 }
-
                 MessageBox.Show("Value not found.");
             }
+
             else
             {
                 MessageBox.Show("Please enter a valid search value.");
             }
         }
 
+        // Find mean of data set
         private void btnMean_Click(object sender, EventArgs e)
         {
             btnSort_Click(sender, e); // force sort before calc
@@ -201,11 +203,10 @@ namespace Astronomical_Processing
             }
 
             double mean = total / GlobalLength;
-
             textBoxCalc.Text = $"Mean : {mean:F2}"; // Formats to 2 decimal places
-
         }
 
+        // Find median of data set
         private void btnMedian_Click(object sender, EventArgs e)
         {
             btnSort_Click(sender, e); // force sort before calc
@@ -217,20 +218,16 @@ namespace Astronomical_Processing
                 // Get low end of middle then get high end of middle and divide by 2 - pretty simple
                 median = (GlobalArray[midpoint1] + GlobalArray[midpoint1 + 1]) / 2;
             }
-            // unreachable code because it will always be 24
-            //else
-            //{
-            //    median = GlobalArray[midpoint1];
-            //}
             textBoxCalc.Text = $"Median : {median:F2}"; // Formats to 2 decimal places
         }
 
+        // Find mode of data set
         private void btnMode_Click(object sender, EventArgs e)
         {
+            // I'm sure theres an easier method, but this is what i could come up with.
             btnSort_Click(sender, e); // force sort before calc
-            List<int> list = new List<int>();
+            List<int> list = new List<int>(); // Create a list in case there are multiple numbers with the same number of duplicates
             int counter = 0;
-            int index = 0;
 
             for (int i = 0; i < GlobalLength; i++)
             {
@@ -243,13 +240,13 @@ namespace Astronomical_Processing
                     }
                 }
 
-                // If this happened we need to create a new list.
+                // If this happened we need to create a new list to get rid of the old one
                 if (curCounter > counter)
                 {
-                    list = new List<int>();
+                    list = new List<int> { GlobalArray[i] }; // This way seems to be liked more by vs2022 - Just add the value at index i immediately.
                     counter = curCounter;
-                    index = i;
                 }
+
                 // if the counters are the same then we need to add them.
                 else if (curCounter == counter)
                 {
@@ -264,29 +261,30 @@ namespace Astronomical_Processing
             // if there is mulitple numbers with the same amount of duplicates
             if (list.Count > 1)
             {
-                // Build the string and deliver to text box
+                // Build the string and deliver to text box - Just found out that i should have used stringbuilder. It doesnt matter so much i guess.
                 string build = "Multimodal: ";
                 int previousNum = 0;
 
                 for (int j = 0; j < GlobalLength; j++)
                 {
                     int temp = GlobalArray[j];
-                    if (list.Contains(temp) &&  temp != previousNum)
+                    if (list.Contains(temp) &&  temp != previousNum) // make sure im not printing out the same number more than once
                     {
-                        build += $"{GlobalArray[j]:F2} ";
+                        build += $"{GlobalArray[j]:F2}, ";
                         previousNum = temp;
                     }
                 }
                 textBoxCalc.Text = build + " | Occurences: " + counter;
             }
 
-            // if there is only 1 with the highest duplicates then do this
+            // if there is only 1 number with the highest duplicates then do this
             else
             {
-                textBoxCalc.Text = $"Mode : {GlobalArray[index]:F2}" + " | Occurences: " + counter;
+                textBoxCalc.Text = $"Mode : {list[0]:F2}" + " | Occurences: " + counter;
             }
         }
 
+        // Find range of data set
         private void btnRange_Click(object sender, EventArgs e)
         {
             btnSort_Click(sender, e); // force sort before calc
