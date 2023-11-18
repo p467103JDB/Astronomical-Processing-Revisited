@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Windows.Forms;
 
@@ -51,7 +52,7 @@ namespace Astronomical_Processing
     public partial class frmMain : Form
     {
         // Globals
-        const int GlobalLength = 24; // Global constant
+        const int GlobalLength = 24; // Global constant - Seeing as that is all we are going to use for now, there is no point in calling array.length
         int[] GlobalArray = new int[GlobalLength];
 
         public frmMain()
@@ -61,9 +62,10 @@ namespace Astronomical_Processing
         }
         private void InitializeDataArray()
         {
+            Random r = new Random();    // initialise random
             for (int i = 0; i < GlobalLength; i++)
             {
-                Random r = new Random();    // initialise random
+
                 int rInt = r.Next(10, 99);  // lower, higher
                 GlobalArray[i] = rInt;      // set values to index in array
             }
@@ -94,7 +96,7 @@ namespace Astronomical_Processing
             if (int.TryParse(textBox.Text, out searchValue))
             {
                 int left = 0;
-                int right = GlobalArray.Length - 1;
+                int right = GlobalLength - 1;
 
                 while (left <= right)
                 {
@@ -172,7 +174,7 @@ namespace Astronomical_Processing
             int searchValue;
             if (int.TryParse(textBox.Text, out searchValue))
             {
-                for (int i = 0; i < GlobalArray.Length; i++)
+                for (int i = 0; i < GlobalLength; i++)
                 {
                     if (GlobalArray[i] == searchValue)
                     {
@@ -191,22 +193,107 @@ namespace Astronomical_Processing
 
         private void btnMean_Click(object sender, EventArgs e)
         {
+            btnSort_Click(sender, e); // force sort before calc
+            double total = 0;
+            for (int i = 0; i < GlobalLength; i++)
+            {
+                total += GlobalArray[i];
+            }
+
+            double mean = total / GlobalLength;
+
+            textBoxCalc.Text = $"Mean : {mean:F2}"; // Formats to 2 decimal places
 
         }
 
         private void btnMedian_Click(object sender, EventArgs e)
         {
+            btnSort_Click(sender, e); // force sort before calc
+            int midpoint1 = (GlobalLength / 2) - 1; // get low end of middle
+            double median;
 
+            if (GlobalLength % 2 == 0)
+            {
+                // Get low end of middle then get high end of middle and divide by 2 - pretty simple
+                median = (GlobalArray[midpoint1] + GlobalArray[midpoint1 + 1]) / 2;
+            }
+            // unreachable code because it will always be 24
+            //else
+            //{
+            //    median = GlobalArray[midpoint1];
+            //}
+            textBoxCalc.Text = $"Median : {median:F2}"; // Formats to 2 decimal places
         }
 
         private void btnMode_Click(object sender, EventArgs e)
         {
+            btnSort_Click(sender, e); // force sort before calc
+            List<int> list = new List<int>();
+            int counter = 0;
+            int index = 0;
 
+            for (int i = 0; i < GlobalLength; i++)
+            {
+                int curCounter = 0;
+                for (int j = 0; j < GlobalLength; j++)
+                {
+                    if (GlobalArray[i] == GlobalArray[j])
+                    {
+                        curCounter++;
+                    }
+                }
+
+                // If this happened we need to create a new list.
+                if (curCounter > counter)
+                {
+                    list = new List<int>();
+                    counter = curCounter;
+                    index = i;
+                }
+                // if the counters are the same then we need to add them.
+                else if (curCounter == counter)
+                {
+                    // if list does not contain this index then add
+                    if (!list.Contains(GlobalArray[i]))
+                    {
+                        list.Add(GlobalArray[i]);
+                    }
+                }
+            }
+
+            // if there is mulitple numbers with the same amount of duplicates
+            if (list.Count > 1)
+            {
+                // Build the string and deliver to text box
+                string build = "Multimodal: ";
+                int previousNum = 0;
+
+                for (int j = 0; j < GlobalLength; j++)
+                {
+                    int temp = GlobalArray[j];
+                    if (list.Contains(temp) &&  temp != previousNum)
+                    {
+                        build += $"{GlobalArray[j]:F2} ";
+                        previousNum = temp;
+                    }
+                }
+                textBoxCalc.Text = build + " | Occurences: " + counter;
+            }
+
+            // if there is only 1 with the highest duplicates then do this
+            else
+            {
+                textBoxCalc.Text = $"Mode : {GlobalArray[index]:F2}" + " | Occurences: " + counter;
+            }
         }
 
         private void btnRange_Click(object sender, EventArgs e)
         {
-
+            btnSort_Click(sender, e); // force sort before calc
+            // Knowing Milan, he probably wants proof of using double
+            // Get highest and lowest then find difference
+            double range = GlobalArray[GlobalLength - 1] - GlobalArray[0]; 
+            textBoxCalc.Text = $"Range: {range:F2}";
         }
     }
 }
