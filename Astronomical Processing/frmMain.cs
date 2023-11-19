@@ -23,8 +23,6 @@ using System.Windows.Forms;
 //  - A button to calculate the average (median)
 //  - A button to calculate the range 
 //  - ToolTips
-
-
 //
 //  Processes:
 //  - InitializeDataArray: Fills the global array between 10 and 99 (Also updates the listbox)
@@ -45,7 +43,6 @@ using System.Windows.Forms;
 //  - Allows user to edit selected index
 //  - Displays results in textBox
 //  - Displays toolTips
-
 
 namespace Astronomical_Processing
 {
@@ -145,6 +142,18 @@ namespace Astronomical_Processing
                 }
             }
             while (isSwapped);
+
+            // Print results to textbox for testing
+            /* 
+            string getrid = string.Empty;
+            for (int i = 0; i < GlobalLength; i++)
+            {
+                int x = GlobalArray[i];
+                getrid += x + ", ";
+            }
+
+            textBox.Text = getrid;
+            */
             UpdateListBox();
         }
 
@@ -210,13 +219,13 @@ namespace Astronomical_Processing
         private void btnMedian_Click(object sender, EventArgs e)
         {
             btnSort_Click(sender, e); // force sort before calc
-            int midpoint1 = (GlobalLength / 2) - 1; // get low end of middle
+            int midpoint1 = (GlobalLength / 2) - 2; // get lowest end of middle so 23 / 2 = 11.5. This means that we should be using 11 and 12 in the array
             double median;
 
             if (GlobalLength % 2 == 0)
             {
                 // Get low end of middle then get high end of middle and divide by 2 - pretty simple
-                median = (GlobalArray[midpoint1] + GlobalArray[midpoint1 + 1]) / 2;
+                median = (GlobalArray[midpoint1] + GlobalArray[midpoint1+1]) / 2;
             }
             textBoxCalc.Text = $"Median : {median:F2}"; // Formats to 2 decimal places
         }
@@ -290,7 +299,7 @@ namespace Astronomical_Processing
             btnSort_Click(sender, e); // force sort before calc
             // Knowing Milan, he probably wants proof of using double
             // Get highest and lowest then find difference
-            double range = GlobalArray[GlobalLength - 1] - GlobalArray[0]; 
+            double range = GlobalArray[GlobalLength - 1] - GlobalArray[0];
             textBoxCalc.Text = $"Range: {range:F2}";
         }
     }
