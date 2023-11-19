@@ -193,7 +193,7 @@ namespace Astronomical_Processing
         }
 
         // Find mean of data set
-        private void btnMean_Click(object sender, EventArgs e)
+        public void btnMean_Click(object sender, EventArgs e)
         {
             btnSort_Click(sender, e); // force sort before calc
             double total = 0;
@@ -207,7 +207,7 @@ namespace Astronomical_Processing
         }
 
         // Find median of data set
-        private void btnMedian_Click(object sender, EventArgs e)
+        public void btnMedian_Click(object sender, EventArgs e)
         {
             btnSort_Click(sender, e); // force sort before calc
             int midpoint1 = (GlobalLength / 2) - 1; // get low end of middle
@@ -222,7 +222,7 @@ namespace Astronomical_Processing
         }
 
         // Find mode of data set
-        private void btnMode_Click(object sender, EventArgs e)
+        public void btnMode_Click(object sender, EventArgs e)
         {
             // I'm sure theres an easier method, but this is what i could come up with.
             btnSort_Click(sender, e); // force sort before calc
@@ -285,13 +285,18 @@ namespace Astronomical_Processing
         }
 
         // Find range of data set
-        private void btnRange_Click(object sender, EventArgs e)
+        public void btnRange_Click(object sender, EventArgs e)
         {
             btnSort_Click(sender, e); // force sort before calc
             // Knowing Milan, he probably wants proof of using double
             // Get highest and lowest then find difference
             double range = GlobalArray[GlobalLength - 1] - GlobalArray[0]; 
             textBoxCalc.Text = $"Range: {range:F2}";
+        }
+
+        public void SetTestData(int[] ints)
+        {
+            // This method is intentionally left empty for testing purposes
         }
     }
 }
