@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Windows.Forms;
 
+#region Info
 //  Alice & Jack, The Team, Sprint 2
 //  Git Branch: main
 //  Date: 11/11/2023
@@ -45,7 +46,7 @@ using System.Windows.Forms;
 //  - Allows user to edit selected index
 //  - Displays results in textBox
 //  - Displays toolTips
-
+#endregion
 
 namespace Astronomical_Processing
 {
@@ -60,12 +61,13 @@ namespace Astronomical_Processing
             InitializeComponent();
             InitializeDataArray();
         }
+
+        #region Initialization
         private void InitializeDataArray()
         {
             Random r = new Random();    // initialise random
             for (int i = 0; i < GlobalLength; i++)
             {
-
                 int rInt = r.Next(10, 99);  // lower, higher
                 GlobalArray[i] = rInt;      // set values to index in array
             }
@@ -80,6 +82,9 @@ namespace Astronomical_Processing
             listBox.Items.Clear();
             listBox.Items.AddRange(stringArray);
         }
+        #endregion
+
+        #region Event Handlers
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -191,6 +196,9 @@ namespace Astronomical_Processing
                 MessageBox.Show("Please enter a valid search value.");
             }
         }
+        #endregion
+
+        #region Calculation Methods
 
         // Find mean of data set
         private void btnMean_Click(object sender, EventArgs e)
@@ -295,3 +303,4 @@ namespace Astronomical_Processing
         }
     }
 }
+#endregion
