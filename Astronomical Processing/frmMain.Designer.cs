@@ -41,17 +41,7 @@
             btnMedian = new Button();
             btnMode = new Button();
             btnMean = new Button();
-            toolTipMean = new ToolTip(components);
-            toolTipMedian = new ToolTip(components);
-            toolTipMode = new ToolTip(components);
-            toolTipRange = new ToolTip(components);
-            toolTipEdit = new ToolTip(components);
-            toolTipSort = new ToolTip(components);
-            toolTipBSearch = new ToolTip(components);
-            toolTipLSearch = new ToolTip(components);
-            toolTipInputTextBox = new ToolTip(components);
-            toolTipResultTextBox = new ToolTip(components);
-            toolTipListBox = new ToolTip(components);
+            toolTip = new ToolTip(components);
             SuspendLayout();
             // 
             // btnEdit
@@ -61,7 +51,7 @@
             btnEdit.Size = new Size(86, 33);
             btnEdit.TabIndex = 0;
             btnEdit.Text = "Edit";
-            toolTipEdit.SetToolTip(btnEdit, "Edit selected item from the lis");
+            toolTip.SetToolTip(btnEdit, "Edit selected item from the lis");
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
             // 
@@ -72,7 +62,7 @@
             btnBinarySearch.Size = new Size(129, 33);
             btnBinarySearch.TabIndex = 1;
             btnBinarySearch.Text = "Binary Search";
-            toolTipBSearch.SetToolTip(btnBinarySearch, "Perform a binary search from the user input");
+            toolTip.SetToolTip(btnBinarySearch, "Perform a binary search from the user input");
             btnBinarySearch.UseVisualStyleBackColor = true;
             btnBinarySearch.Click += btnBinarySearch_Click;
             // 
@@ -83,7 +73,7 @@
             btnSort.Size = new Size(90, 33);
             btnSort.TabIndex = 2;
             btnSort.Text = "Sort";
-            toolTipSort.SetToolTip(btnSort, "Sort the data in the list");
+            toolTip.SetToolTip(btnSort, "Sort the data in the list");
             btnSort.UseVisualStyleBackColor = true;
             btnSort.Click += btnSort_Click;
             // 
@@ -93,18 +83,20 @@
             listBox.ItemHeight = 25;
             listBox.Location = new Point(139, 87);
             listBox.Name = "listBox";
+            listBox.SelectionMode = SelectionMode.MultiExtended;
             listBox.Size = new Size(452, 329);
             listBox.TabIndex = 3;
-            toolTipListBox.SetToolTip(listBox, "Displays list of randomly generated data");
+            toolTip.SetToolTip(listBox, "Display randomly generated data");
             listBox.SelectedIndexChanged += listBox_SelectedIndexChanged;
             // 
             // textBox
             // 
             textBox.Location = new Point(139, 514);
+            textBox.Multiline = true;
             textBox.Name = "textBox";
             textBox.Size = new Size(452, 31);
             textBox.TabIndex = 4;
-            toolTipInputTextBox.SetToolTip(textBox, "Take user's inputs");
+            toolTip.SetToolTip(textBox, "Take user inputs");
             textBox.TextChanged += textBox_TextChanged;
             // 
             // btnLinearSearch
@@ -114,7 +106,7 @@
             btnLinearSearch.Size = new Size(129, 33);
             btnLinearSearch.TabIndex = 6;
             btnLinearSearch.Text = "Linear Search";
-            toolTipLSearch.SetToolTip(btnLinearSearch, "Perform a linear search on a selected item from the listbox ");
+            toolTip.SetToolTip(btnLinearSearch, "Perform a linear search on a selected item from the listbox ");
             btnLinearSearch.UseVisualStyleBackColor = true;
             btnLinearSearch.Click += BtnLinearSearch_Click;
             // 
@@ -124,7 +116,7 @@
             textBoxCalc.Name = "textBoxCalc";
             textBoxCalc.Size = new Size(452, 31);
             textBoxCalc.TabIndex = 7;
-            toolTipResultTextBox.SetToolTip(textBoxCalc, "Display result");
+            toolTip.SetToolTip(textBoxCalc, "Display results");
             // 
             // btnRange
             // 
@@ -133,7 +125,7 @@
             btnRange.Size = new Size(96, 33);
             btnRange.TabIndex = 11;
             btnRange.Text = "Range";
-            toolTipRange.SetToolTip(btnRange, "Calculate Range");
+            toolTip.SetToolTip(btnRange, "Calculate Range");
             btnRange.UseVisualStyleBackColor = true;
             btnRange.Click += btnRange_Click;
             // 
@@ -144,7 +136,7 @@
             btnMedian.Size = new Size(90, 33);
             btnMedian.TabIndex = 10;
             btnMedian.Text = "Median";
-            toolTipMedian.SetToolTip(btnMedian, "Calculate Median");
+            toolTip.SetToolTip(btnMedian, "Calculate Median");
             btnMedian.UseVisualStyleBackColor = true;
             btnMedian.Click += btnMedian_Click;
             // 
@@ -155,7 +147,7 @@
             btnMode.Size = new Size(88, 33);
             btnMode.TabIndex = 9;
             btnMode.Text = "Mode";
-            toolTipMode.SetToolTip(btnMode, "Calculate Mode");
+            toolTip.SetToolTip(btnMode, "Calculate Mode");
             btnMode.UseVisualStyleBackColor = true;
             btnMode.Click += btnMode_Click;
             // 
@@ -166,7 +158,7 @@
             btnMean.Size = new Size(86, 33);
             btnMean.TabIndex = 8;
             btnMean.Text = "Mean";
-            toolTipMean.SetToolTip(btnMean, "Calculate Mean");
+            toolTip.SetToolTip(btnMean, "Calculate Mean");
             btnMean.UseVisualStyleBackColor = true;
             btnMean.Click += btnMean_Click;
             // 
@@ -206,16 +198,6 @@
         private Button btnMedian;
         private Button btnMode;
         private Button btnMean;
-        private ToolTip toolTipMean;
-        private ToolTip toolTipMedian;
-        private ToolTip toolTipMode;
-        private ToolTip toolTipRange;
-        private ToolTip toolTipEdit;
-        private ToolTip toolTipSort;
-        private ToolTip toolTipBSearch;
-        private ToolTip toolTipLSearch;
-        private ToolTip toolTipInputTextBox;
-        private ToolTip toolTipResultTextBox;
-        private ToolTip toolTipListBox;
+        private ToolTip toolTip;
     }
 }

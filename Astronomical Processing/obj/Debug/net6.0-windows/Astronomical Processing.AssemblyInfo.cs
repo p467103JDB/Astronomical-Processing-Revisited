@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Astronomical Processing")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ca067753fc6df81368a49ded59a84a86cdfee96")]
 [assembly: System.Reflection.AssemblyProductAttribute("Astronomical Processing")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Astronomical Processing")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

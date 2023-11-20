@@ -24,8 +24,6 @@ using System.Windows.Forms;
 //  - A button to calculate the average (median)
 //  - A button to calculate the range 
 //  - ToolTips
-
-
 //
 //  Processes:
 //  - InitializeDataArray: Fills the global array between 10 and 99 (Also updates the listbox)
@@ -153,6 +151,7 @@ namespace Astronomical_Processing
             UpdateListBox();
         }
 
+        // Edit selected item from the listbox
         private void btnEdit_Click(object sender, EventArgs e)
         {
             int newValue;
@@ -218,7 +217,7 @@ namespace Astronomical_Processing
         private void btnMedian_Click(object sender, EventArgs e)
         {
             btnSort_Click(sender, e); // force sort before calc
-            int midpoint1 = (GlobalLength / 2) - 1; // get low end of middle
+            int midpoint1 = (GlobalLength / 2) - 1; // get lowest end of middle so 23 / 2 = 11.5. This means that we should be using 11 and 12 in the array
             double median;
 
             if (GlobalLength % 2 == 0)
