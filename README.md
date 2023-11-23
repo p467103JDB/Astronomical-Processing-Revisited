@@ -7,7 +7,7 @@ Program Functions:
 - Bubble Sorting Button
 - Edit Data Button
 - Search Data Button (Binary Search)
-- Search DAata Button (Linear Search)
+- Search Data Button (Linear Search)
 - Math Calculation Button (Find Mean)
 - Math Calculation Button (Find Median)
 - Math Calculation Button (Find Mode)
